@@ -83,6 +83,8 @@
                                 </section>
                                 <section id="active-chat">
                                     <!-- Inserire tutto quello che riguarda la scrittura delle chat -->
+                                    <div class="chat-cloud" v-for="(content, i) in contacts[currentIndex].messages" :class="content.status">{{content.message}}</div>
+
                                 </section>
                                 <section id="input-chat-text" class="d-flex justify-content-around align-items-center">
                                     <a href="#"><i class="fa-regular fa-face-smile"></i></a>
