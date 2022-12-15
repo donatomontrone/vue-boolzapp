@@ -34,7 +34,7 @@ aside{
 
 #user p,
 #notification p,
-#user-active p{
+#user-active .last-access{
     font-size: .7rem;
 }
 

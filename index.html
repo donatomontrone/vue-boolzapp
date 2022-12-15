@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=M, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Boolzapp</title>
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/style.css">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <section id="chat-list" class="overflow-auto">
-                                    <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in contacts">
+                                    <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in contacts" @click="changeActiveChat(index)" :class="currentIndex === index ? 'single-chat-active' : ''">
                                             <div class="contact-info d-flex">
                                                 <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">
@@ -69,10 +69,10 @@
                             <main class="">
                                 <section id="user-active" class="d-flex justify-content-between align-items-center pe-3 py-2 ps-1">
                                     <div class="user-avatar d-flex align-items-center">
-                                        <img src="./css/img/avatar_1.jpg" alt="avatar 1" class="rounded-circle me-2">
+                                        <img :src="`./css/img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="rounded-circle me-2">
                                         <div class="contact-active-info">
-                                            <p class="m-0 ">Username</p>
-                                            <p class="m-0 last-access">Ultimo accesso</p>
+                                            <p class="m-0 pb-2">{{contacts[currentIndex].name}}</p>
+                                            <p class="m-0 last-access">Ultimo accesso il 20.20.22</p>
                                         </div>
                                     </div>
                                     <div class="user-button">

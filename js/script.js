@@ -178,10 +178,12 @@ const { createApp } = Vue
                         ],
                     }
                 ],
-
+                currentIndex : 0
             }
         },
         methods : {
-
+            changeActiveChat(index){
+                this.currentIndex = index;
+            }
         }
 }).mount('#app')
