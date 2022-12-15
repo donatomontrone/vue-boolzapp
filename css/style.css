@@ -8,12 +8,13 @@ background: linear-gradient(180deg, rgb(21, 124, 119) 10%, rgb(200, 200, 200) 10
 }
 
 .chat-wrapper{
-    height: 90%;
+    height: 90vh;
 }
 
 aside{
     width: 35%;
     min-width: 235px;
+    background-color: white;
 }
 
 .user-button a{
@@ -21,16 +22,19 @@ aside{
     color: #B1B1B1;
 }
 
-#user{
+#user,
+#user-active{
     background-color: #EAEAEA;
 }
 
-#user img{
+#user img,
+#user-active img{
     width: 40px;
 }
 
 #user p,
-#notification p{
+#notification p,
+#user-active p{
     font-size: .7rem;
 }
 
@@ -56,12 +60,14 @@ aside{
 #notification a,
 #search input,
 p.contact-last-message,
-p.time {
+p.time,
+p.last-access {
     color: grey;
     font-size: .6rem;
 }
 
-.notification-text{
+.notification-text,
+.contact-active-info{
     padding-left: 5px;
     line-height: .8rem;
 }
@@ -78,12 +84,13 @@ p.time {
 }
 
 #chat-list{
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: white;
 }
 
 .single-chat{
-    margin: 6px 6px 6px 12px;
+    padding:15px 10px 15px 18px;
+    border-bottom: 1px solid rgb(230, 229, 229);
 }
 
 .contact-info img{
@@ -103,4 +110,27 @@ p.time {
 
 main{
     width: 70%;
+}
+
+main #active-chat{
+    background-image: url(./img/mine.jpg);
+    background-position: center;
+    height: calc(100% - 112px);
+    width: 100%;
+}
+
+#input-chat-text{
+    background-color: #F3EEEA;
+    height: 56px;
+}
+
+#input-chat-text a {
+    width: 10%;
+    text-align: center;
+    color: rgb(84, 84, 84);
+}
+
+#input-chat-text input{
+    width: 80%;
+    height: 50%;
 }
