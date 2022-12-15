@@ -8,7 +8,7 @@ background: linear-gradient(180deg, rgb(21, 124, 119) 10%, rgb(200, 200, 200) 10
 }
 
 .chat-wrapper{
-    height: 90vh;
+    height: 95vh;
 }
 
 aside{
@@ -83,14 +83,14 @@ p.last-access {
     color: grey;
 }
 
-#chat-list{
-    overflow-y: scroll;
-    background-color: white;
-}
 
 .single-chat{
     padding:15px 10px 15px 18px;
     border-bottom: 1px solid rgb(230, 229, 229);
+}
+
+.single-chat-active{
+    background-color: lightgray;
 }
 
 .contact-info img{
@@ -110,6 +110,7 @@ p.last-access {
 
 main{
     width: 70%;
+    border-left: 2px solid rgb(230, 229, 229);
 }
 
 main #active-chat{

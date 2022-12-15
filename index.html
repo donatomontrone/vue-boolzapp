@@ -18,15 +18,15 @@
     </head>
     <body>
         <div id="app">
-            <div class="backgroud">
+            <div class="backgroud pt-4">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 chat-wrapper d-flex justify-content-center">
-                            <aside class="mt-4">
+                            <aside class="overflow-hidden">
                                 <section id="user" class="d-flex justify-content-between align-items-center pe-3 py-2 ps-1">
                                     <div class="user-avatar">
-                                        <img src="./css/img/avatar_1.jpg" alt="avatar 1" class="rounded-circle">
-                                        <p class="d-inline">Username</p>
+                                        <img src="./css/img/avatar_io.jpg" alt="Sofia" class="rounded-circle me-2">
+                                        <p class="d-inline">Sofia</p>
                                     </div>
                                     <div class="user-button">
                                         <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
@@ -34,7 +34,7 @@
                                         <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                                     </div>
                                 </section>
-                                <section id="notification" class="d-flex">
+                                <section id="notification" class="d-flex align-items-center">
                                     <div class="bell-rounded rounded-circle">
                                         <i class="fa-solid fa-bell-slash"></i>
                                     </div>
@@ -49,13 +49,13 @@
                                         <input type="text" class="form-control rounded-0 ps-1" placeholder="Cerca o inizia una nuova chat">
                                     </div>
                                 </div>
-                                <section id="chat-list">
+                                <section id="chat-list" class="overflow-auto">
                                     <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in contacts">
                                             <div class="contact-info d-flex">
-                                                <img src="./css/img/avatar_1.jpg" alt="1" class="rounded-circle">
+                                                <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">
-                                                    <p class="m-0 contact-name">Name</p>
-                                                    <p class="m-0 contact-last-message">Last message</p>
+                                                    <p class="m-0 contact-name">{{contact.name}}</p>
+                                                    <p class="m-0 contact-last-message">Ultimo messaggio inviato.</p>
                                                 </div>
                                             </div>
                                             <div class="last-message-time">
@@ -66,7 +66,7 @@
                                     </div>
                                 </section>
                             </aside>
-                            <main class="mt-4">
+                            <main class="">
                                 <section id="user-active" class="d-flex justify-content-between align-items-center pe-3 py-2 ps-1">
                                     <div class="user-avatar d-flex align-items-center">
                                         <img src="./css/img/avatar_1.jpg" alt="avatar 1" class="rounded-circle me-2">
