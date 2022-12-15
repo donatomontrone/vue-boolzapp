@@ -88,7 +88,7 @@
                                 </section>
                                 <section id="input-chat-text" class="d-flex justify-content-around align-items-center">
                                     <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                                    <input class="form-control form-control-sm" type="text" placeholder="Scrivi un messaggio">
+                                    <input class="form-control form-control-sm" type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyUp.enter="addNewMessage(currentIndex)">
                                     <a href="#"><i class="fa-solid fa-microphone"></i></a>
                                 </section>
                             </main>
