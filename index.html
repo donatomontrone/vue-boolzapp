@@ -45,10 +45,26 @@
                                 </section>
                                 <div id="search" class="p-1">
                                     <div class="input-group rounded-0">
-                                        <button class="btn" type="button">Button</button>
-                                        <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat">
+                                        <button class="btn rounded-0 py-0 px-3" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                        <input type="text" class="form-control rounded-0 ps-1" placeholder="Cerca o inizia una nuova chat">
                                     </div>
                                 </div>
+                                <section id="chat-list">
+                                    <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in contacts">
+                                            <div class="contact-info d-flex">
+                                                <img src="./css/img/avatar_1.jpg" alt="1" class="rounded-circle">
+                                                <div class="contact-text">
+                                                    <p class="m-0 contact-name">Name</p>
+                                                    <p class="m-0 contact-last-message">Last message</p>
+                                                </div>
+                                            </div>
+                                            <div class="last-message-time">
+                                                <p class="time">
+                                                    12.00
+                                                </p>
+                                            </div>
+                                    </div>
+                                </section>
                             </aside>
                             <main class="mt-4">
 

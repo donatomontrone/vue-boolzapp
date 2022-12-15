@@ -54,7 +54,9 @@ aside{
 }
 
 #notification a,
-#search input {
+#search input,
+p.contact-last-message,
+p.time {
     color: grey;
     font-size: .6rem;
 }
@@ -70,6 +72,32 @@ aside{
 
 #search button{
     background-color: white;
+    border: 1px solid lightgray;
+    font-size: .7rem;
+    color: grey;
+}
+
+#chat-list{
+    overflow: scroll;
+    background-color: white;
+}
+
+.single-chat{
+    margin: 6px 6px 6px 12px;
+}
+
+.contact-info img{
+        min-width: 42px;
+        max-width: 42px;
+        margin-right: 6px;
+        }
+
+.contact-info .contact-name{
+    font-size: .9rem;
+}
+
+.last-message-time .time{
+    padding-top: 2px;
 }
 
 
