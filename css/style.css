@@ -13,6 +13,12 @@ background: linear-gradient(180deg, rgb(21, 124, 119) 10%, rgb(200, 200, 200) 10
 
 aside{
     width: 35%;
+    min-width: 235px;
+}
+
+.user-button a{
+    text-decoration: none;
+    color: #B1B1B1;
 }
 
 #user{
@@ -23,14 +29,49 @@ aside{
     width: 40px;
 }
 
-#user p{
+#user p,
+#notification p{
     font-size: .7rem;
 }
 
-.user-button a{
-    text-decoration: none;
-    color: #B1B1B1;
+#notification{
+    background-color: #8EDAFA;
+    padding: 10px 5px 10px 10px;
 }
+
+#notification .bell-rounded{
+    background-color: white;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    text-align: center;
+    padding-top: 8px;
+}
+
+#notification i{
+    color: #8EDAFA;
+}
+
+#notification a,
+#search input {
+    color: grey;
+    font-size: .6rem;
+}
+
+.notification-text{
+    padding-left: 5px;
+    line-height: .8rem;
+}
+
+#search{
+    background-color: #EAEAEA;
+}
+
+#search button{
+    background-color: white;
+}
+
 
 main{
     width: 70%;
