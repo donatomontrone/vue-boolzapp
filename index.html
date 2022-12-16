@@ -55,12 +55,12 @@
                                                 <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">
                                                     <p class="m-0 contact-name">{{contact.name}}</p>
-                                                    <p class="m-0 contact-last-message">Ultimo messaggio</p>
+                                                    <p class="m-0 contact-last-message">{{lastMessage(index)}}</p>
                                                 </div>
                                             </div>
                                             <div class="last-message-time">
                                                 <p class="time">
-                                                    {{contact.date}}
+                                                    {{lastAccess(index).slice(10,16)}}
                                                 </p>
                                             </div>
                                     </div>
@@ -72,7 +72,7 @@
                                         <img :src="`./css/img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="rounded-circle me-2">
                                         <div class="contact-active-info">
                                             <p class="m-0 pb-2">{{contacts[currentIndex].name}}</p>
-                                            <p class="m-0 last-access">Ultimo accesso il 20.20.22</p>
+                                            <p class="m-0 last-access">Ultimo accesso {{lastAccess(currentIndex).slice(0, 16)}}</p>
                                         </div>
                                     </div>
                                     <div class="user-button">

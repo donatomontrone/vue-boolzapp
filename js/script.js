@@ -214,6 +214,16 @@ const { createApp } = Vue
             getNowDate(){
                 let DateTime = luxon.DateTime;
                 return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss')
+            },
+            lastMessageIndex(index){
+                const lastMessage = this.contacts[index].messages.length -1;
+                return lastMessage
+            },
+            lastAccess(index){
+                return (this.contacts[index].messages[this.lastMessageIndex(index)].date);
+            },
+            lastMessage(index){
+                return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
             }
         }
 }).mount('#app')
