@@ -62,7 +62,7 @@ aside{
 #notification a,
 #search input,
 p.contact-last-message,
-p.time,
+.time,
 p.last-access {
     color: grey;
     font-size: .6rem;
@@ -161,6 +161,17 @@ main #active-chat{
     max-width: 300px;
 }
 
+.chat-cloud span{
+    text-decoration: none;
+    display: none;
+    transition: all 1s ease;
+}
+
+.chat-cloud:hover .chat-cloud span{
+    display: inline;
+}
+
+
 .sent{
     background: #DAFDD4;
     margin: 0px 20px 10px auto;
@@ -171,4 +182,9 @@ main #active-chat{
 .received{
     background: #ffffff;
     margin: 0px auto 10px 20px;
+}
+
+main p.time{
+    text-align: end;
+    margin-bottom: 0;
 }

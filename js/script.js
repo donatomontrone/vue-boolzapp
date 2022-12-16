@@ -224,6 +224,9 @@ const { createApp } = Vue
             },
             lastMessage(index){
                 return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
-            }
+            },
+            removeMessage(index, activeIndex){
+                return this.contacts[activeIndex].messages.splice(index, 1)
+                }
         }
 }).mount('#app')
