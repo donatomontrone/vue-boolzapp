@@ -208,7 +208,7 @@ const { createApp } = Vue
             },
             searchBar(){
                 return this.contacts.filter(contact => {
-                        return this.contacts.name.toLowerCase().includes(contact.toLowerCase())
+                        return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
             }
         }
