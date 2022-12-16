@@ -193,7 +193,7 @@ const { createApp } = Vue
             },
             addNewMessage(index){
                 if (this.newMessage != ''){
-                    this.contacts[index].messages.push({ date: '16:00:00', message: this.newMessage, status: 'sent'});
+                    this.contacts[index].messages.push({ date: this.getNowDate(), message: this.newMessage, status: 'sent'});
                     this.setReply(index);
                 }
                 this.clearNewMessage();
@@ -203,13 +203,17 @@ const { createApp } = Vue
             },
             setReply(index){
                 setTimeout(() => {
-                    this.contacts[index].messages.push({ date: '16:00:01', message: 'Ok!', status: 'received'});
+                    this.contacts[index].messages.push({ date: this.getNowDate(), message: 'Ok!', status: 'received'});
                 }, 1000);
             },
             searchBar(){
                 return this.contacts.filter(contact => {
                         return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
+            },
+            getNowDate(){
+                let DateTime = luxon.DateTime;
+                return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss')
             }
         }
 }).mount('#app')

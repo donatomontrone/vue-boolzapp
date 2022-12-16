@@ -55,12 +55,12 @@
                                                 <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">
                                                     <p class="m-0 contact-name">{{contact.name}}</p>
-                                                    <p class="m-0 contact-last-message">Ultimo messaggio inviato.</p>
+                                                    <p class="m-0 contact-last-message">Ultimo messaggio</p>
                                                 </div>
                                             </div>
                                             <div class="last-message-time">
                                                 <p class="time">
-                                                    12.00
+                                                    {{contact.date}}
                                                 </p>
                                             </div>
                                     </div>
@@ -98,6 +98,7 @@
             </div>
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
