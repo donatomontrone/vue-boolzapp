@@ -7,12 +7,12 @@
 // //Milestone 3
 // //Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 // //Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
-// Milestone 4
-// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
-// Milestone 5 - opzionale
-// Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// // Milestone 4
+// // Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+// // Milestone 5 - opzionale
+// // Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 
-// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
+// // Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 
 const { createApp } = Vue
 
@@ -216,14 +216,22 @@ const { createApp } = Vue
                 return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss')
             },
             lastMessageIndex(index){
-                const lastMessage = this.contacts[index].messages.length -1;
+                const lastMessage = this.contacts[index].messages.length - 1;
                 return lastMessage
             },
             lastAccess(index){
-                return (this.contacts[index].messages[this.lastMessageIndex(index)].date);
+                if(this.lastMessageIndex(index) > 0){
+                    return (this.contacts[index].messages[this.lastMessageIndex(index)].date);
+                }else{
+                    return "";
+                }
             },
             lastMessage(index){
-                return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
+                if(this.lastMessageIndex(index) > 0){
+                    return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
+                }else{
+                    return "";
+                }
             },
             removeMessage(index, activeIndex){
                 return this.contacts[activeIndex].messages.splice(index, 1)
