@@ -184,7 +184,7 @@ const { createApp } = Vue
                 ],
                 currentIndex : 0,
                 newMessage : '',
-                search : ''
+                search : '',
             }
         },
         methods : {
@@ -206,9 +206,9 @@ const { createApp } = Vue
                     this.contacts[index].messages.push({ date: '16:00:01', message: 'Ok!', status: 'received'});
                 }, 1000);
             },
-            filteredContact() {
-                return this.contacts.filter(search => {
-                    return post.title.toLowerCase().includes(this.search.toLowerCase())
+            searchBar(){
+                return this.contacts.filter(contact => {
+                        return this.contacts.name.toLowerCase().includes(contact.toLowerCase())
                 })
             }
         }
