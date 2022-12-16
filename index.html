@@ -46,11 +46,10 @@
                                 <div id="search" class="p-1">
                                     <div class="input-group rounded-0">
                                         <button class="btn rounded-0 py-0 px-3" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                        <input type="text" class="form-control rounded-0 ps-1" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
+                                        <input type="text" class="form-control rounded-0 ps-1" placeholder="Cerca o inizia una nuova chat" v-model="search">
                                     </div>
                                 </div>
                                 <section id="chat-list" class="overflow-auto">
-                                    <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in contacts" @click="changeActiveChat(index)" :class="currentIndex === index ? 'single-chat-active' : ''">
                                             <div class="contact-info d-flex">
                                                 <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">

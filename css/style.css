@@ -4,7 +4,7 @@ body{
 
 .backgroud{
 height: 100vh;
-background: linear-gradient(180deg, rgb(21, 124, 119) 10%, rgb(200, 200, 200) 10%);
+background: linear-gradient(180deg, #3F958A 10%, #D9DAD9 10%);
 }
 
 .chat-wrapper{
@@ -153,7 +153,7 @@ main #active-chat{
 }
 
 .sent{
-    background: #cbf6aa;
+    background: #DAFDD4;
     margin: 0px 20px 10px auto;
 
 
