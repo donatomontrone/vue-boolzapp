@@ -184,13 +184,15 @@ const { createApp } = Vue
                 ],
                 currentIndex : 0,
                 newMessage : '',
-                search : '',
             }
         },
         methods : {
+            //Funzione per rendere attiva la chat che clicco ovvero che l'indice corrente(l'indice della chat aperta) è unguale all'index della chat che clicco
             changeActiveChat(index){
                 this.currentIndex = index;
             },
+            //Aggiungere un messaggio che viene immesso dall'utente. Se il messaggio non è vuoto allora pusho nell'array dell'indice selezionato un oggetto con la data tramite la funzione, il messaggio tramite l'input text e lo stato del messaggio è ovviamente sent //! In seguito ho aggiunto la funzione per la risposta automatica dopo un secondo
+            //Poi ovviamente ripulisco l'input tramite una funzione apposita.
             addNewMessage(index){
                 if (this.newMessage != ''){
                     this.contacts[index].messages.push({ date: this.getNowDate(), message: this.newMessage, status: 'sent'});
@@ -198,28 +200,33 @@ const { createApp } = Vue
                 }
                 this.clearNewMessage();
             },
+            //Funziona che ripulisce l'input
             clearNewMessage(){
                 this.newMessage = '';
             },
+            //Funzione che attraverso il set timeout ad un secondo pusha un messaggio automatico con data tramite funzione e ovviamente lo status è impostato su ricevuto.
             setReply(index){
                 setTimeout(() => {
                     this.contacts[index].messages.push({ date: this.getNowDate(), message: 'Ok!', status: 'received'});
                 }, 1000);
             },
+            //Funzione da usare direttamente nel vfor al posto dell'array poichè controlla, tutto in minuscolo, se il nome del contatto contiene caretteri inseriti nella search bar.
             searchBar(){
                 return this.contacts.filter(contact => {
                         return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
             },
+            //Utilizzo la libreria luxon e le do il formato interessato uguale a quello inserito nei dati dell'array
             getNowDate(){
                 let DateTime = luxon.DateTime;
                 return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss')
             },
+            //Dichiaro una costante e le assegno l'indice dell'ultimo messaggio
             lastMessageIndex(index){
-                
                 const lastMessage = this.contacts[index].messages.length - 1;
                 return lastMessage
             },
+            //Funzione per l'ultimo accesso, Se l'ultimo indice è maggiore o uguale a zero mi ritorna la data dell'ultimo messaggio, altrimenti data Easter Egg
             lastAccess(index){
                 if(this.lastMessageIndex(index) >= 0){
                     return (this.contacts[index].messages[this.lastMessageIndex(index)].date);
@@ -227,11 +234,13 @@ const { createApp } = Vue
                     return "19/12/1994";
                 }
             },
+            //Funzione invece per selezionare l'ultimo messaggio, se l'ultimo indice del messaggio è maggiore o uguale a zero mi ritorna il testo dell'ultimo messaggio.
             lastMessage(index){
                 if(this.lastMessageIndex(index) >= 0){
                     return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
                 }
             },
+            //Funzione per rimuovere un messaggio,  faccio splice sull'indice attivo per eleminare il messaggio selezionato se ovviamente il messaggio è presente (sempre tramite il controllo dell'indice dell'utlimo messaggio)
             removeMessage(index, activeIndex){
                 if(this.lastMessageIndex(index) >= 0){
                     return this.contacts[activeIndex].messages.splice(index, 1)

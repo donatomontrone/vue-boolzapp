@@ -18,11 +18,14 @@
     </head>
     <body>
         <div id="app">
+            <!-- Sfondo della pagina -->
             <div class="backgroud pt-4">
                 <div class="container">
                     <div class="row">
+                        <!-- Conteiner della sezione dei contatti e della chat attiva -->
                         <div class="col-12 chat-wrapper d-flex justify-content-center">
-                            <aside class="overflow-hidden">
+                            <!-- Sezione di sinistra con la lista dei contatti e le info dell'utente -->
+                            <aside class="">
                                 <section id="user" class="d-flex justify-content-between align-items-center pe-3 py-2 ps-1">
                                     <div class="user-avatar">
                                         <img src="./css/img/avatar_io.jpg" alt="Sofia" class="rounded-circle me-2">
@@ -43,21 +46,25 @@
                                         <a href="#">Attiva notifiche desktop</a>
                                     </div>
                                 </section>
+                                <!-- Sezione sulla ricerca inserisco un v model per prendere il value da filtrare nel v for -->
                                 <div id="search" class="p-1">
                                     <div class="input-group rounded-0">
                                         <button class="btn rounded-0 py-0 px-3" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         <input type="text" class="form-control rounded-0 ps-1" placeholder="Cerca o inizia una nuova chat" v-model="search">
                                     </div>
                                 </div>
+                                <!-- Faccio un vfor prendendo il singolo contatto e l'indice con la lista filtrata (se non inserisco nulla nella search bar ovviamente me la prende tutta), aggiunto che la funzione al click per visualizzare nella chat attiva l'utente cliccato e assegnarli la classe -->
                                 <section id="chat-list" class="overflow-auto">
                                     <div class="single-chat d-flex justify-content-between" v-for="(contact, index) in searchBar()" @click="changeActiveChat(index)" :class="currentIndex === index ? 'single-chat-active' : ''">
                                             <div class="contact-info d-flex">
                                                 <img :src="`./css/img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="rounded-circle">
                                                 <div class="contact-text">
+                                                    <!-- Nelle informazioni inserisco semplicemente il nome e tramite la funzione l'ulitmo messaggio che è stato inviato/ricevuto -->
                                                     <p class="m-0 contact-name">{{contact.name}}</p>
                                                     <p class="m-0 contact-last-message">{{lastMessage(index)}}</p>
                                                 </div>
                                             </div>
+                                            <!-- Inserisco tramite la funzione l'ultimo accesso effettuato dall'utenete. Eseguo uno slice per "tagliare" la data e i secondi, che in questo caso non mi interessano -->
                                             <div class="last-message-time">
                                                 <p class="time">
                                                     {{lastAccess(index).slice(10,16)}}
@@ -66,11 +73,13 @@
                                     </div>
                                 </section>
                             </aside>
+                            <!-- Sezione della chat attiva -->
                             <main class="">
                                 <section id="user-active" class="d-flex justify-content-between align-items-center pe-3 py-2 ps-1">
                                     <div class="user-avatar d-flex align-items-center">
                                         <img :src="`./css/img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="rounded-circle me-2">
                                         <div class="contact-active-info">
+                                            <!-- Inserisco i dai dell'utente e come ultimo accesso uso la funzione che mi "taglia" i dati che non mi interessano, in questo caso i secondi-->
                                             <p class="m-0 pb-2">{{contacts[currentIndex].name}}</p>
                                             <p class="m-0 last-access">Ultimo accesso {{lastAccess(currentIndex).slice(0, 16)}}</p>
                                         </div>
@@ -82,9 +91,10 @@
                                     </div>
                                 </section>
                                 <section id="active-chat">
-                                    <!-- Inserire tutto quello che riguarda la scrittura delle chat -->
+                                    <!-- Eseguo un vfor del per il singolo messaggio e l'indice solo sul sott'oggetto messages e gli attribuisco la classe inviato o ricevuto usando lo stessa stringa evitando un ternario per la classe -->
                                     <div class="chat-cloud" v-for="(content, index) in contacts[currentIndex].messages" :class="content.status">
                                         {{content.message}}
+                                        <!-- Qui inserisco il dropdown menu e al click su cancella messaggio inserisco la funzione per rimuovere un messaggio, e la funzione per attribuire l'orario d'invio messaggio "tagliandolo" e quindi eliminando la data ma lasciando solo l'ora-->
                                         <span class="dropdown d-inline-block">
                                             <a class="p-0 m-0" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="fa-solid fa-xs fa-chevron-down text-black-50"></i>
@@ -98,8 +108,11 @@
                                     </div>
 
                                 </section>
+                                <!-- Sezione per inviare un messaggio, uso il v model per prendere ciò che l'utente inserisce e inserirlo poi come messaggio inviato tramite il tasto invio -->
                                 <section id="input-chat-text" class="d-flex justify-content-around align-items-center">
-                                    <a href="#"><i class="fa-regular fa-face-smile"></i></a>
+                                    <a href="#">
+                                        <i class="fa-regular fa-face-smile"></i>
+                                    </a>
                                     <input class="form-control form-control-sm" type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyUp.enter="addNewMessage(currentIndex)">
                                     <a href="#"><i class="fa-solid fa-microphone"></i></a>
                                 </section>
@@ -109,6 +122,7 @@
                 </div>
             </div>
         </div>
+        <!-- Script VUE - BOOTSTRAP - LUXON - CUSTOM -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
