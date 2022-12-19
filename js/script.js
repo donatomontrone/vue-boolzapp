@@ -216,25 +216,26 @@ const { createApp } = Vue
                 return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss')
             },
             lastMessageIndex(index){
+                
                 const lastMessage = this.contacts[index].messages.length - 1;
                 return lastMessage
             },
             lastAccess(index){
-                if(this.lastMessageIndex(index) > 0){
+                if(this.lastMessageIndex(index) >= 0){
                     return (this.contacts[index].messages[this.lastMessageIndex(index)].date);
                 }else{
-                    return "";
+                    return "19/12/1994";
                 }
             },
             lastMessage(index){
-                if(this.lastMessageIndex(index) > 0){
+                if(this.lastMessageIndex(index) >= 0){
                     return (this.contacts[index].messages[this.lastMessageIndex(index)].message);
-                }else{
-                    return "";
                 }
             },
             removeMessage(index, activeIndex){
-                return this.contacts[activeIndex].messages.splice(index, 1)
+                if(this.lastMessageIndex(index) >= 0){
+                    return this.contacts[activeIndex].messages.splice(index, 1)
                 }
+            }
         }
 }).mount('#app')
