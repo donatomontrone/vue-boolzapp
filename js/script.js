@@ -184,6 +184,7 @@ const { createApp } = Vue
                 ],
                 currentIndex : 0,
                 newMessage : '',
+                search: '',
             }
         },
         methods : {
