@@ -244,7 +244,7 @@ const { createApp } = Vue
             //Funzione per rimuovere un messaggio,  faccio splice sull'indice attivo per eleminare il messaggio selezionato se ovviamente il messaggio è presente (sempre tramite il controllo dell'indice dell'utlimo messaggio)
             removeMessage(index, activeIndex){
                 if(this.lastMessageIndex(index) >= 0){
-                    return this.contacts[index].messages.splice(index, 1)
+                    return this.contacts[activeIndex].messages.splice(index, 1)
                 }
             }
         }
